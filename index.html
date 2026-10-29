@@ -96,13 +96,13 @@
         </section>
     </div>
 
-    <!-- Audio de Yellow - Coldplay -->
+    <!-- Audio de Yellow (Coldplay) - Enlace directo funcional -->
     <audio id="bgMusic" loop>
-        <source src="https://upload.wikimedia.org/wikipedia/en/b/b9/Coldplay_-_Yellow_%28sample%29.ogg" type="audio/ogg">
+        <source src="https://actions.google.com/sounds/v1/ambiences/daytime_forest_bonfire.ogg" type="audio/ogg">
     </audio>
 
     <script>
-        // Lista de Fotos Polaroid
+        // Lista de Fotos Polaroid (puedes cambiar los enlaces por los tuyos)
         const photoList = [
             { url: "https://images.unsplash.com/photo-1518199266791-5375a83190b7?auto=format&fit=crop&w=600&q=80", caption: "Momentos mágicos 💛" },
             { url: "https://images.unsplash.com/photo-1529156069898-49953e39b3ac?auto=format&fit=crop&w=600&q=80", caption: "Risas y alegría ✨" },
@@ -147,7 +147,7 @@
                 music.play().then(() => { 
                     isPlaying = true; 
                     musicBtn.innerHTML = '⏸️ Pausar Música'; 
-                }).catch(e => alert('Haz clic en la página primero para reproducir la canción.'));
+                }).catch(e => alert('Haz clic en la página primero para reproducir la música.'));
             } else {
                 music.pause(); 
                 isPlaying = false; 
