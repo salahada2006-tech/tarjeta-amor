@@ -3,155 +3,139 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Para Ti, con Amor 💛</title>
+    <title>Para Alguien Muy Especial 💛</title>
+    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
     <script src="https://cdn.jsdelivr.net/npm/qrcode-generator@1.4.4/qrcode.min.js"></script>
     <style>
+        :root {
+            --primary-color: #d4a373;
+            --secondary-color: #e9c46a;
+            --accent-color: #f4a261;
+            --bg-color: #fffdf7;
+            --card-bg: #ffffff;
+            --text-color: #4a4a4a;
+            --yellow-light: #fefae0;
+        }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
         body {
-            font-family: Arial, sans-serif;
-            background-color: #fffef9;
-            color: #4a4a4a;
+            font-family: 'Poppins', sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            min-height: 100vh;
             display: flex;
             flex-direction: column;
             align-items: center;
-            padding: 20px;
-            margin: 0;
             overflow-x: hidden;
             position: relative;
-            min-height: 100vh;
         }
-        /* Estilos para la lluvia de corazones amarillos */
+        /* Lluvia de corazones y destellos amarillos */
         .hearts-bg { position: fixed; top: 0; left: 0; width: 100%; height: 100%; pointer-events: none; overflow: hidden; z-index: 0; }
-        .floating-heart { position: absolute; bottom: -50px; font-size: 22px; animation: floatUp 7s linear infinite; }
+        .floating-heart { position: absolute; bottom: -50px; font-size: 22px; animation: floatUp 8s linear infinite; }
         @keyframes floatUp {
             0% { transform: translateY(0) rotate(0deg); opacity: 1; }
             100% { transform: translateY(-105vh) rotate(360deg); opacity: 0; }
         }
-        .container {
-            max-width: 500px;
-            width: 100%;
-            background: white;
-            padding: 30px;
-            border-radius: 20px;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
-            text-align: center;
-            margin-top: 20px;
-            z-index: 1;
-        }
-        h1 { color: #d4a373; }
-        p { line-height: 1.6; }
-        .polaroid {
-            background: white;
-            padding: 10px 10px 20px 10px;
-            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
-            margin: 20px 0;
-            border-radius: 4px;
-        }
-        .polaroid img {
-            width: 100%;
-            height: 200px;
-            object-fit: cover;
-        }
-        .btn {
-            background-color: #d4a373;
-            color: white;
-            border: none;
-            padding: 10px 20px;
-            border-radius: 20px;
-            cursor: pointer;
-            font-size: 16px;
-            margin-top: 10px;
-        }
-        .btn-secondary {
-            background-color: #e9c46a;
-            color: #555;
-            font-weight: bold;
-        }
-        .music-section {
-            margin: 15px 0;
-        }
-        .qr-section {
-            margin-top: 30px;
-            padding-top: 20px;
-            border-top: 2px dashed #f0f0f0;
-        }
-        .qr-input-group {
-            display: flex;
-            gap: 10px;
-            margin-bottom: 15px;
-            margin-top: 15px;
-        }
-        .qr-input-group input {
-            flex: 1;
-            padding: 10px;
-            border: 1px solid #ddd;
-            border-radius: 8px;
-            outline: none;
-        }
-        #qrcode {
-            display: flex;
-            justify-content: center;
-            margin: 15px 0;
-        }
-        #qrcode img {
-            border-radius: 8px;
-            box-shadow: 0 4px 10px rgba(0,0,0,0.05);
-            padding: 10px;
-            background: white;
-        }
+        .container { width: 100%; max-width: 600px; padding: 20px; z-index: 1; display: flex; flex-direction: column; gap: 25px; margin-bottom: 40px; }
+        header { text-align: center; padding: 30px 20px; background: linear-gradient(135deg, var(--yellow-light), #fff); border-radius: 20px; box-shadow: 0 10px 30px rgba(0,0,0,0.03); border: 1px solid rgba(233, 196, 106, 0.3); }
+        h1 { font-family: 'Dancing Script', cursive; font-size: 3rem; color: var(--primary-color); margin-bottom: 5px; }
+        header p { font-size: 0.95rem; color: #777; }
+        .message-card { background-color: var(--card-bg); padding: 30px; border-radius: 20px; box-shadow: 0 8px 25px rgba(0,0,0,0.04); line-height: 1.8; font-size: 1rem; text-align: justify; border-top: 4px solid var(--secondary-color); }
+        .message-card h3 { font-family: 'Dancing Script', cursive; font-size: 2rem; color: var(--accent-color); margin-bottom: 15px; text-align: center; }
+        .gallery-section { background-color: var(--card-bg); padding: 25px; border-radius: 20px; box-shadow: 0 8px 25px rgba(0,0,0,0.04); text-align: center; }
+        .gallery-section h3 { font-family: 'Dancing Script', cursive; font-size: 2rem; color: var(--primary-color); margin-bottom: 20px; }
+        .polaroid-grid { display: flex; flex-direction: column; gap: 25px; align-items: center; }
+        .polaroid { background: #fff; padding: 12px 12px 25px 12px; width: 85%; max-width: 280px; box-shadow: 0 5px 15px rgba(0,0,0,0.08); border-radius: 4px; transform: rotate(-2deg); }
+        .polaroid:nth-child(even) { transform: rotate(2deg); }
+        .polaroid img { width: 100%; height: 220px; object-fit: cover; border-radius: 2px; }
+        .polaroid p { font-family: 'Dancing Script', cursive; font-size: 1.4rem; margin-top: 12px; color: var(--text-color); }
+        .actions-section { display: flex; justify-content: center; gap: 15px; flex-wrap: wrap; }
+        .btn { background-color: var(--primary-color); color: white; border: none; padding: 12px 24px; border-radius: 30px; font-size: 0.95rem; font-weight: 500; cursor: pointer; box-shadow: 0 4px 15px rgba(212, 163, 115, 0.3); }
+        .btn-secondary { background-color: var(--secondary-color); color: #4a4a4a; font-weight: 600; box-shadow: 0 4px 15px rgba(233, 196, 106, 0.3); }
+        .qr-section { background-color: var(--card-bg); padding: 25px; border-radius: 20px; box-shadow: 0 8px 25px rgba(0,0,0,0.04); text-align: center; }
+        .qr-section h3 { font-size: 1.2rem; color: var(--primary-color); margin-bottom: 10px; }
+        .qr-section p { font-size: 0.85rem; color: #777; margin-bottom: 15px; }
+        .qr-input-group { display: flex; gap: 10px; margin-bottom: 15px; }
+        .qr-input-group input { flex: 1; padding: 10px 15px; border: 1px solid #ddd; border-radius: 8px; font-size: 0.9rem; outline: none; }
+        #qrcode { display: flex; justify-content: center; margin: 15px 0; }
+        #qrcode img { border-radius: 8px; box-shadow: 0 4px 10px rgba(0,0,0,0.05); padding: 10px; background: white; }
         .hidden { display: none; }
     </style>
 </head>
 <body>
-    <!-- Fondo de corazones amarillos -->
     <div class="hearts-bg" id="heartsBg"></div>
-
     <div class="container">
-        <h1>Para Ti, con Amor 💛</h1>
-        <p>Gracias por llenar mis días de luz y momentos hermosos. Esta tarjeta es para recordarte lo especial que eres.</p>
-        
-        <div class="polaroid">
-            <img src="https://images.unsplash.com/photo-1518199266791-5375a83190b7?auto=format&fit=crop&w=600&q=80" alt="Foto">
-            <p>Momentos mágicos ✨</p>
-        </div>
+        <header>
+            <h1>Para Ti, con Amor 💛</h1>
+            <p>Una pequeña sorpresa guardada en el corazón y en la web</p>
+        </header>
 
-        <div class="music-section">
+        <section class="message-card">
+            <h3>Mi mensaje especial</h3>
+            <p>Quería crear algo único y diferente solo para ti. Cada momento compartido se convierte en un recuerdo inolvidable. Gracias por llenar mis días de alegría, risas y momentos hermosos. Espero que esta pequeña tarjeta digital te saque una gran sonrisa hoy y siempre. 💛✨</p>
+        </section>
+
+        <section class="gallery-section">
+            <h3>Nuestros Momentos</h3>
+            <div class="polaroid-grid" id="polaroidGrid"></div>
+        </section>
+
+        <div class="actions-section">
+            <button class="btn" id="confettiBtn">✨ Lluvia Amarilla</button>
             <button class="btn btn-secondary" id="musicBtn">🎵 Reproducir Yellow</button>
         </div>
 
-        <button class="btn" onclick="alert('¡Te quiero muchísimo! 💛')">¡Presióname! ✨</button>
-
-        <div class="qr-section">
-            <h3 style="color: #d4a373;">Generador de Código QR</h3>
-            <p style="font-size: 14px; color: #777;">Copia y pega el enlace de tu tarjeta aquí abajo para generar tu código QR y descargarlo:</p>
+        <section class="qr-section">
+            <h3>Generador de Código QR</h3>
+            <p>Pega aquí el enlace de tu página en GitHub Pages para generar tu QR y descargarlo:</p>
             <div class="qr-input-group">
                 <input type="text" id="urlInput" placeholder="https://tu-usuario.github.io/tu-repositorio">
                 <button class="btn" id="generateQrBtn">Generar QR</button>
             </div>
             <div id="qrcode"></div>
-            <button class="btn btn-secondary hidden" id="downloadQrBtn">⬇️ Descargar Imagen QR</button>
-        </div>
+            <button class="btn btn-secondary hidden" id="downloadQrBtn" style="margin: 0 auto;">⬇️ Descargar Imagen QR</button>
+        </section>
     </div>
 
-    <!-- Audio de Yellow (Coldplay) -->
+    <!-- Audio de Yellow - Coldplay -->
     <audio id="bgMusic" loop>
         <source src="https://upload.wikimedia.org/wikipedia/en/b/b9/Coldplay_-_Yellow_%28sample%29.ogg" type="audio/ogg">
     </audio>
 
     <script>
+        // Lista de Fotos Polaroid
+        const photoList = [
+            { url: "https://images.unsplash.com/photo-1518199266791-5375a83190b7?auto=format&fit=crop&w=600&q=80", caption: "Momentos mágicos 💛" },
+            { url: "https://images.unsplash.com/photo-1529156069898-49953e39b3ac?auto=format&fit=crop&w=600&q=80", caption: "Risas y alegría ✨" },
+            { url: "https://images.unsplash.com/photo-1494774157365-9e04c6720e47?auto=format&fit=crop&w=600&q=80", caption: "Siempre juntos 🌟" }
+        ];
+
+        const grid = document.getElementById('polaroidGrid');
+        photoList.forEach(photo => {
+            const div = document.createElement('div');
+            div.className = 'polaroid';
+            div.innerHTML = `<img src="${photo.url}" alt="Foto especial"><p>${photo.caption}</p>`;
+            grid.appendChild(div);
+        });
+
         // Lluvia de corazones amarillos
         const heartsBg = document.getElementById('heartsBg');
         const yellowSymbols = ['💛', '✨', '🌟', '🟡', '💫'];
+
         function createYellowHeart() {
             const heart = document.createElement('div');
             heart.className = 'floating-heart';
             heart.innerHTML = yellowSymbols[Math.floor(Math.random() * yellowSymbols.length)];
             heart.style.left = Math.random() * 100 + 'vw';
-            heart.style.fontSize = (Math.random() * 15 + 18) + 'px';
-            heart.style.animationDuration = (Math.random() * 4 + 5) + 's';
+            heart.style.fontSize = (Math.random() * 15 + 15) + 'px';
+            heart.style.animationDuration = (Math.random() * 5 + 6) + 's';
             heartsBg.appendChild(heart);
-            setTimeout(() => heart.remove(), 7000);
+            setTimeout(() => heart.remove(), 8000);
         }
         setInterval(createYellowHeart, 500);
+
+        document.getElementById('confettiBtn').addEventListener('click', () => {
+            for (let i = 0; i < 25; i++) setTimeout(createYellowHeart, i * 60);
+        });
 
         // Control de música
         const music = document.getElementById('bgMusic');
@@ -160,23 +144,23 @@
 
         musicBtn.addEventListener('click', () => {
             if (!isPlaying) {
-                music.play().then(() => {
-                    isPlaying = true;
-                    musicBtn.innerHTML = '⏸️ Pausar Música';
+                music.play().then(() => { 
+                    isPlaying = true; 
+                    musicBtn.innerHTML = '⏸️ Pausar Música'; 
                 }).catch(e => alert('Haz clic en la página primero para reproducir la canción.'));
             } else {
-                music.pause();
-                isPlaying = false;
+                music.pause(); 
+                isPlaying = false; 
                 musicBtn.innerHTML = '🎵 Reproducir Yellow';
             }
         });
 
-        // Generador de QR
+        // Generador de Código QR
         const urlInput = document.getElementById('urlInput');
         const generateBtn = document.getElementById('generateQrBtn');
         const qrcodeContainer = document.getElementById('qrcode');
         const downloadBtn = document.getElementById('downloadQrBtn');
-        
+
         if (window.location.protocol.startsWith('http')) urlInput.value = window.location.href;
 
         function makeQrCode() {
